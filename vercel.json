@@ -1,10 +1,17 @@
 {
-  "name": "vercel",
+  "name": "egyptianmindset",
   "version": 2,
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/static",
+      "config": {
+        "distDir": "out"
+      }
     }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
